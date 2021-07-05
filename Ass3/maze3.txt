@@ -1,0 +1,13 @@
+20 11
+10 19
+xxxxxxxxxxxxxxxxxxxx
+x                  x
+x                  x
+x                  x
+x                  x
+x                  x
+x                  x
+x                  x
+x                  x
+x                  x
+xxxxxxxxxxxxxxxxxxxx

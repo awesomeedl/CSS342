@@ -1,0 +1,84 @@
+Tue Feb 23 19:04:04 PST 2021
+Linux csslab8.uwb.edu 3.10.0-1160.11.1.el7.x86_64 #1 SMP Fri Dec 18 16:34:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+uid=1124813(tliao512) gid=2121124813(tliao512) groups=2121124813(tliao512),605559(lab-access)
+=====================================================
+1. Compiles without warnings with -Wall -Wextra flags
+=====================================================
+=====================================================
+2. Runs and produces correct output
+=====================================================
+Level: 4 -- -2147483648, 9, 2147483647, 
+Level: 3 -- -2147483648, 9, 2147483647, 
+Level: 2 -- -2147483648, 5, 9, 2147483647, 
+Level: 1 -- -2147483648, 3, 5, 7, 9, 2147483647, 
+Level: 0 -- -2147483648, 1, 3, 5, 7, 9, 2147483647, 
+
+7 ? true
+3 ? true
+-100 ? false
+100 ? false
+Level: 4 -- -2147483648, 9, 2147483647, 
+Level: 3 -- -2147483648, 9, 2147483647, 
+Level: 2 -- -2147483648, 9, 2147483647, 
+Level: 1 -- -2147483648, 3, 7, 9, 2147483647, 
+Level: 0 -- -2147483648, 1, 3, 7, 9, 2147483647, 
+
+Test 2 finished.
+Done.
+=====================================================
+3. clang-tidy warnings are fixed
+=====================================================
+7185 warnings generated.
+14335 warnings generated.
+/home/NETID/tliao512/ucourses/css342/ass4/ass4.cpp:10:3: warning: random number generator seeded with a constant value will generate a predictable sequence of values [cert-msc32-c]
+  srand(10000);
+  ^
+/home/NETID/tliao512/ucourses/css342/ass4/skiplist.cpp:87:10: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c]
+  return rand() % 100 < probability;
+         ^
+Suppressed 14331 warnings (14331 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+=====================================================
+4. clang-format does not find any formatting issues
+=====================================================
+Running clang-format on ./ass4.cpp
+Running clang-format on ./skiplist.cpp
+36c36
+< SNode::SNode(int value) : value{ value } {
+---
+> SNode::SNode(int value) : value{value} {
+53c53
+<     : depth{ depth }, probability{ probability } {
+---
+>     : depth{depth}, probability{probability} {
+=====================================================
+5. No memory leaks using g++
+=====================================================
+=====================================================
+6. No memory leaks using valgrind, look for "definitely lost" 
+=====================================================
+==16054== Memcheck, a memory error detector
+==16054== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16054== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==16054== Command: ./a.out
+==16054== Parent PID: 15879
+==16054== 
+==16054== 
+==16054== HEAP SUMMARY:
+==16054==     in use at exit: 0 bytes in 0 blocks
+==16054==   total heap usage: 40 allocs, 40 frees, 74,092 bytes allocated
+==16054== 
+==16054== All heap blocks were freed -- no leaks are possible
+==16054== 
+==16054== For lists of detected and suppressed errors, rerun with: -s
+==16054== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+=====================================================
+7. Tests have full code coverage
+=====================================================
+./create-output.sh: line 129: ./check-code-coverage.sh: Permission denied
+Tue Feb 23 19:04:19 PST 2021
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================
